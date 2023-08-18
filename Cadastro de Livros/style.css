@@ -1,0 +1,164 @@
+img {
+    width: 100%;
+    height: auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #BF9D7E;
+}
+
+.titulo {
+    font: 700 40px 'Poppins Bold';
+    padding: -1000px 0 10px 0;
+}
+
+#imagem{
+    background-image: url(Memoria-Jesuitica.jpg);
+    width: 98.9vw;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.texto {
+    padding: 180px 0 0 50px;
+}
+
+.text {
+    text-align: center;
+    margin-top: -150px;
+    font-size: 50px;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(font/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins Bold';
+    src: url(font/Poppins-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url(font/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'OpenSans Bold';
+    src: url(font/OpenSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(font/Roboto-Regular.ttf);
+}
+
+
+.tudo {
+    height: 745px;
+    background-color: #BF9D7E;
+}
+
+.h {
+    font: 500 35px 'Poppins Bold';
+    display: flex;
+    padding-top: 57px;
+    padding-left: 550px;
+    color: black;
+}
+
+#nomeLivro {
+    padding: 15px 70px;
+    border-radius: 10px;
+}
+
+#autorLivro {
+    padding: 15px 40px;
+    border-radius: 10px;
+}
+
+#anoLivro {
+    padding: 15px 15px;
+    border-radius: 10px;
+}
+
+::placeholder {
+    font-family: 'Poppins';
+}
+
+.inputs {
+    padding: 25px 375px; 
+}
+
+button {
+    font: 500 15px 'Poppins';
+    margin-top: 20px;
+    background-color: #6D5B33;
+    border-radius: 10px;
+    padding: 12px 25px;
+}
+
+button:hover {
+    background-color: #48421E;
+    color: black;
+    cursor: pointer;
+}
+
+#quantidadeLivros {
+    color: black;
+    margin-top: 30px;
+    font: 500 18px 'Poppins';
+    text-align: center;
+}
+
+#textoCadastro {
+    color: black;
+    margin-top: 10px;
+    font: 500 18px 'Poppins';
+    text-align: center;
+}
+
+.img {
+    margin-top: 30px;
+    border-radius: 20px;
+    width: 220px;
+    height: auto;
+}
+
+.bot1 {
+    margin-left: 600px;
+    border: 2px solid black;
+    box-shadow: 0 1px 0 1px;
+}
+
+.bot2 {
+    margin-left: 200px;
+    border: 2px solid black;
+    box-shadow: 0 1px 0 1px;
+}
+
+.img {
+    margin-left: 650px;
+}
+
+.BOTOES {
+    padding: 0 590px; 
+}
+
+#nomeLivro, #autorLivro, #anoLivro {
+    border: 2px solid black;
+}
+
+
+.adicionar, .apagar {
+    border: 2px solid black;
+    box-shadow: 0 1px 0 1px;
+}

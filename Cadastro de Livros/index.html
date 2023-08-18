@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadrastro de livros</title>
+    <link rel="stylesheet" href="style.css">
+</head> 
+<body>
+    <div id="imagem" class="container">
+        <div class="titulo">
+           <h1 class="texto">Cadastro de livros</h1> 
+        </div>
+    </div>
+
+    <div class="tudo">
+        <div class="pesquiseAqui">
+            <h2 class="h">
+                Cadastre já o seu livro
+            </h2>
+        </div>
+
+        <div class="centro">
+            <div class="inputs">
+                <input type="text" id="nomeLivro" placeholder="Nome">
+                <input type="text" id="autorLivro" placeholder="Autor">
+                <input type="number" id="anoLivro" placeholder="Ano">
+            </div>
+
+            <div class="BOTOES">
+                <button class="adicionar" onclick="adicionar()">Adicionar Livro </button>
+                <button class="apagar" onclick="apagarLivros()">Apagar registro</button>
+            </div>
+
+            <p id="quantidadeLivros"></p>
+            <p id="textoCadastro"></p>
+
+            <div class="carrossel">
+                <img class="img" id="carrosselImagem" src="" alt="Imagem do Carrossel">
+                <div class="botoes">
+                    <button class="bot1" id="anterior"><</button>
+                            <button class="bot2" id="proximo">></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let biblioteca = [];
+        const IMAGENS = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg', 'image6.jpg', 'image7.jpg', 'image8.jpg', 'image9.jpg', 'image10.jpg'];
+        let imagensAtivas = [];
+
+        function cadastro(nome, autor, ano) {
+            var livro = {
+                titulo: nome,
+                autor: autor,
+                ano: ano
+            };
+
+            biblioteca.push(livro);
+            atualizarQuantidadeLivros();
+
+            if (biblioteca.length <= IMAGENS.length) {
+                imagensAtivas.push(IMAGENS[biblioteca.length - 1]);
+                imgIndice = biblioteca.length - 1;
+                carregar();
+            }
+
+            document.querySelector('.carrossel').style.display = 'block';
+        }
+
+        function adicionar() {
+            let nome = document.getElementById('nomeLivro').value;
+            let autor = document.getElementById('autorLivro').value;
+            let ano = document.getElementById('anoLivro').value;
+            cadastro(nome, autor, ano);
+        }
+
+        function mostrarLivros() {
+            for (let x of biblioteca) {
+                console.log(x.titulo, x.autor, x.ano);
+            }
+        }
+
+        function apagarLivros() {
+            biblioteca.length = 0;
+            imagensAtivas.length = 0;
+            document.querySelector('.carrossel').style.display = 'none';
+            atualizarQuantidadeLivros();
+        }
+
+        function atualizarQuantidadeLivros() {
+            const quantidadeLivros = biblioteca.length;
+            const quantidadeLivrosText = quantidadeLivros === 1 ? '1 livro cadastrado' : `${quantidadeLivros} livros cadastrados`;
+            document.getElementById('quantidadeLivros').textContent = quantidadeLivrosText;
+
+            const textoCadastro = quantidadeLivros === 0 ? 'Cadastre um livro' : '';
+            document.getElementById('textoCadastro').textContent = textoCadastro;
+        }
+
+        let imgIndice = 0;
+        var IMG = document.getElementById('carrosselImagem');
+        function carregar(index = imgIndice) {
+            IMG.src = imagensAtivas[index];
+            imgIndice = index;
+        }
+        const prevButton = document.getElementById('anterior');
+        const nextButton = document.getElementById('proximo');
+
+        prevButton.addEventListener('click', () => {
+            if (imgIndice === 0) {
+                imgIndice = imagensAtivas.length - 1;
+            } else {
+                --imgIndice;
+            }
+            carregar();
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (imgIndice === imagensAtivas.length - 1) {
+                imgIndice = 0;
+            } else {
+                ++imgIndice;
+            }
+            carregar();
+        });
+    </script>
+</body>
+</html>
